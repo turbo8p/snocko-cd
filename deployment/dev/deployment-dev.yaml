@@ -22,6 +22,6 @@ spec:
         - name: ENV
           valueFrom: 
             configMapKeyRef:
-            name: snocko-config-map-dev
-            key: ENV
+              name: snocko-config-map-dev
+              key: ENV
 

@@ -22,5 +22,5 @@ spec:
         - name: ENV
           valueFrom: 
             configMapKeyRef:
-            name: snocko-config-map-prod
-            key: ENV
+              name: snocko-config-map-prod
+              key: ENV
