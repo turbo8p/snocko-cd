@@ -18,3 +18,9 @@ spec:
         image: public.ecr.aws/s7j8l1f2/snocko:575f3ac837ee4d94fb32b19640e42d107e480425
         ports:
         - containerPort: 8081
+        env:
+        - name: ENV
+          valueFrom: 
+            configMapKeyRef:
+            name: snocko-config-map-prod
+            key: ENV
