@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "snocko-app-ingress-dev"
+  namespace: "application-dev"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/subnets: subnet-0576bff8fd4828d18, subnet-05b92d9fcc7199f65
+    alb.ingress.kubernetes.io/group.name: "snocko-app-ingress-group"
+    alb.ingress.kubernetes.io/healthcheck-path: "/"
+spec:
+  rules:
+    - host: dev.turbo8p.asia
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: "snocko-app-service-dev"
+                port:
+                  number: 8080
