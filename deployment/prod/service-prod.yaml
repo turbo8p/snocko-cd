@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: snocko-app-service-prod
+  namespace: application-prod
+spec:
+  selector:
+    app: snocko-app-prod
+  type: NodePort
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8081

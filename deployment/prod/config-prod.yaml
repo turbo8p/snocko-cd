@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: snocko-config-map-prod
+  namespace: application-prod
+data:
+  ENV: Prod

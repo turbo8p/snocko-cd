@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snocko-app-prod
+  namespace: application-prod
+spec:
+  selector:
+    matchLabels:
+      app: snocko-app-prod
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: snocko-app-prod
+    spec:
+      containers:
+      - name: snocko-app-prod
+        image: public.ecr.aws/s7j8l1f2/snocko:575f3ac837ee4d94fb32b19640e42d107e480425
+        ports:
+        - containerPort: 8081
